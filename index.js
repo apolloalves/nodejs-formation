@@ -2,9 +2,11 @@ const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()
 
+const questionModel = require('./database/Question')
+
 const connection = require('./database/database')
 
-//Promisse
+//Promisse connection
 connection
     .authenticate()
     .then(() => {
