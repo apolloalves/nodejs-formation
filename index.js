@@ -32,8 +32,14 @@ app.post('/savequestion', ( req, res ) => {
         description: req.body.description
     }
     
+    questionModel.create({
+        title: data.title,
+        description : data.description
+        
+    }).then(() => { res.redirect('/') 
 
-    res.send(`Data received : ${data.title} -> ${data.description}`)
+    }).catch((err) => console.log(err))
+    
 })
 
 
