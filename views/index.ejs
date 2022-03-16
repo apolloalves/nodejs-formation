@@ -1,20 +1,24 @@
 <!-- Include Header  -->
-<%- include ('./partials/header') %>
+<%- include ('./partials/head') %>
 <body>
     <main>
     <!-- Include navbar -->
     <%- include ('./partials/navbar') %> 
         
         <div class="container">
-            <h1 class="title_questions">Questions</h1>
+            <header>
+                <h1 class="fw-400">Questions</h1>
+                <hr>
+            </header>
+            
             <% questions.forEach( question => { %>
                 
-                <div class="card shadow ">
+                <section class="card material__card-shadow card__questions">
                     <header class="card-header">
-                        <h5><%= question.title  %> </h5>
+                        <span><%= question.title  %> </span>
                     </header>
-                    <button type='submit' class="btn material__btn material__shadow-none" >answer</button>
-                </div>
+                    <button type='submit' class="btn material__btn material__shadow-none material__btn--answer">answer</button>
+                </section>
                 
                 <% }) %> 
             </div>

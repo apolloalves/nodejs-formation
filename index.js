@@ -1,10 +1,17 @@
-const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()
 
+const bodyParser = require('body-parser')
 const questionModel = require('./database/Question')
 
 const connection = require('./database/database')
+
+app.use( bodyParser.urlencoded({ extended: false }))
+app.use( bodyParser.json() )
+
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+
 
 //Promisse connection
 connection
@@ -15,13 +22,7 @@ connection
     .catch((err) => console.log( err ))
 
 
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
-
-app.set('view engine', 'ejs')
-app.use(express.static('public'))
-
-
+// Routes
 app.get('/', ( req, res ) => { 
     questionModel.findAll({
         raw: true, order: 
@@ -39,10 +40,7 @@ app.get('/', ( req, res ) => {
 })
 
 
-
-
 app.get('/question', ( req, res ) => { res.render('question')})
-
 app.post('/savequestion', ( req, res ) => {
 
     const data = {

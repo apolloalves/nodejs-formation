@@ -6,8 +6,11 @@
     padding   : 0;
 }
 
+
 body {
-    background: rgb(236, 239, 241);
+    background            : rgb(236, 239, 241);
+    font-family           : Google Sans;
+    -webkit-font-smoothing: antialiased;
 }
 
 
@@ -19,7 +22,6 @@ main {
 nav.navbar {
     display    : flex;
     align-items: baseline;
-
 
 }
 
@@ -37,9 +39,8 @@ nav.navbar a {
 div.card {
     border: 0;
 }
-
-div.card-shadow {
-    position: relative;
+section.card {
+    margin-bottom: .25rem;
 }
 
 header.card-header {
@@ -49,22 +50,15 @@ header.card-header {
     margin    : .5rem;
 }
 
-.title_questions{ margin-bottom: 3rem;}
-
-div.card button {
-    position: absolute;
-    right   : 1.5rem;
-    top     : 0.3rem;
-}
-
 form input,
 form textarea {
     margin-bottom: .5rem;
 }
 
+h1 ~ hr { margin-bottom: 3rem;}
 
 
-.shadow {
+.material__shadow {
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
 }
 
@@ -91,13 +85,21 @@ form textarea {
         0px 1px 10px 0px rgb(0 0 0 / 12%);
 }
 
-.material__btn {
+.material__btn,
+.material__btn--answer {
     color           : #3f51b5;
     background-color: transparent;
     border-color    : #3f51b5;
     text-transform  : uppercase;
     margin          : .5rem 0;
     box-shadow      : 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+}
+
+.material__btn--answer {
+    position: absolute;
+    right   : 1.5rem;
+    right   : 1.5rem;
+    top     : 0.3rem;
 }
 
 .material__btn-floating {
@@ -109,8 +111,8 @@ form textarea {
     flex-direction : column;
     align-items    : center;
     justify-content: center;
-    width          : 3.5rem;
-    height         : 3.5rem;
+    width          : 3rem;
+    height         : 3rem;
     position       : absolute;
     right          : 25rem;
     transform      : scale(1.2);
@@ -125,4 +127,9 @@ form textarea {
 
 .material_pr {
     position: relative !important;
+    left    : 0.1rem;
+}
+
+.fw-400 {
+    font-weight: 400;
 }

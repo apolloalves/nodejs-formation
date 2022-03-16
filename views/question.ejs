@@ -24,17 +24,18 @@
         </nav>
 
         <section class="container">
+            <header>
+                <h1 class="fw-400">Type your question</h1>
+                <hr>
+            </header>
             <div class="card shadow">
-                <header class="card-header">
-                    <h3>Digite sua pergunta</h3>
-                </header>
                 <div class="card-body">
                     <form action="/savequestion" method="POST">
-                        <label for="title">Título</label>
+                        <label for="title">Title</label>
                         <input class="form-control material__border" type="text" name="title" id="title">
-                        <label for="description">Descrição</label>
+                        <label for="description">Description</label>
                         <textarea class="form-control material__border" name="description" id="description"></textarea>
-                        <button type='submit' class="btn material__btn material__shadow-none material_pr ">Perguntar</button>
+                        <button type='submit' class="btn material__btn material__shadow-none material_pr ">ask</button>
                     </form>
                 </div>
             </div>
