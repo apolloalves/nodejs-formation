@@ -38,7 +38,9 @@ nav.navbar a {
 
 div.card {
     border: 0;
+    background: transparent;
 }
+
 section.card {
     margin-bottom: .25rem;
 }
@@ -55,7 +57,9 @@ form textarea {
     margin-bottom: .5rem;
 }
 
-h1 ~ hr { margin-bottom: 3rem;}
+h1~hr {
+    margin-bottom: 3rem;
+}
 
 
 .material__shadow {
@@ -64,18 +68,20 @@ h1 ~ hr { margin-bottom: 3rem;}
 
 
 .material__border {
-    border       : 0;
-    border-bottom: 1px solid #44444429;
+    background: transparent;
+    /* border       : 0; */
+    border: 1px solid #44444429;
     outline      : none;
 
 }
 
 .material__border:focus {
     border       : 0;
-    border-bottom: 3px solid #e95420;
-    border-color : #e95420;
+    border-bottom: 3px solid #3f51b5;
+    border-color : #3f51b5;
     box-shadow   : none;
     outline      : none;
+    /* background: transparent; */
 
 }
 
@@ -93,13 +99,22 @@ h1 ~ hr { margin-bottom: 3rem;}
     text-transform  : uppercase;
     margin          : .5rem 0;
     box-shadow      : 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+    position        : absolute;
+    right           : 1.5rem;
+    top             : 0.3rem;
+    transition: all .5s;
 }
 
-.material__btn--answer {
-    position: absolute;
-    right   : 1.5rem;
-    right   : 1.5rem;
-    top     : 0.3rem;
+.material__btn--answer:focus {
+    outline   : none;
+    box-shadow: none;
+   
+}
+
+
+.material__btn--answer:hover,.material__btn:hover {
+    background: #3f51b5;
+    color: #fff;
 }
 
 .material__btn-floating {

@@ -59,4 +59,25 @@ app.post('/savequestion', ( req, res ) => {
 })
 
 
+app.get('/question/:id', (req, res ) => {
+    const id = req.params.id
+    // search dabatabase
+    questionModel.findOne({
+        
+        where: { id: id }
+    }).then((question) => {
+
+        question != undefined
+       
+        ? res.render('questionsSearch', {
+            question: question
+        }) 
+        : res.redirect('/')
+    })
+
+    .catch(erro => console.log(err))
+
+})
+
+
 app.listen(3000, () => console.log('Server is running at http://localhost:3000'))
