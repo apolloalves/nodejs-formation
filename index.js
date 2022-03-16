@@ -23,7 +23,11 @@ app.use(express.static('public'))
 
 
 app.get('/', ( req, res ) => { 
-    questionModel.findAll({raw: true})
+    questionModel.findAll({
+        raw: true, order: 
+        [['id','DESC']
+    ]})
+
     .then((questions) =>  { 
         
         res.render('index', {
