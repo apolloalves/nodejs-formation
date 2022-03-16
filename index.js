@@ -22,7 +22,21 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
 
-app.get('/', ( req, res ) => { res.render('index') })
+app.get('/', ( req, res ) => { 
+    questionModel.findAll({raw: true})
+    .then((questions) =>  { 
+        
+        res.render('index', {
+            questions: questions
+            
+        }) 
+    })    
+    
+})
+
+
+
+
 app.get('/question', ( req, res ) => { res.render('question')})
 
 app.post('/savequestion', ( req, res ) => {

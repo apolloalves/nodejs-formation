@@ -10,6 +10,12 @@ body {
     background: rgb(236, 239, 241);
 }
 
+
+main {
+    width : 100vw;
+    height: 100vh;
+}
+
 nav.navbar {
     display    : flex;
     align-items: baseline;
@@ -17,24 +23,39 @@ nav.navbar {
 
 }
 
-nav.navbar p { font-size: 1.4rem; margin-left: 1rem; }
-nav.navbar  a { 
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: 0.5rem;
+nav.navbar p {
+    font-size: 1.2rem;
+    margin   : 0 0 0 1rem;
+}
+
+nav.navbar a {
+    display    : flex;
+    align-items: center;
+
 }
 
 div.card {
     border: 0;
 }
 
-header.card-header {
-    /* box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%); */
-    border: 0;
-    background: white;
+div.card-shadow {
+    position: relative;
 }
 
-header.card-header { margin: .5rem;}
+header.card-header {
+    /* box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%); */
+    border    : 0;
+    background: white;
+    margin    : .5rem;
+}
+
+.title_questions{ margin-bottom: 3rem;}
+
+div.card button {
+    position: absolute;
+    right   : 1.5rem;
+    top     : 0.3rem;
+}
 
 form input,
 form textarea {
@@ -61,7 +82,7 @@ form textarea {
     border-color : #e95420;
     box-shadow   : none;
     outline      : none;
-        
+
 }
 
 .material__shadow {
@@ -72,8 +93,36 @@ form textarea {
 
 .material__btn {
     color           : #3f51b5;
-    background-color: white;
+    background-color: transparent;
     border-color    : #3f51b5;
-    text-transform: uppercase;
-    margin: .5rem 0;
+    text-transform  : uppercase;
+    margin          : .5rem 0;
+    box-shadow      : 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+}
+
+.material__btn-floating {
+    background     : #3f51b5;
+    box-shadow     : 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+    border-radius  : 50%;
+    bottom         : 10rem;
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: center;
+    width          : 3.5rem;
+    height         : 3.5rem;
+    position       : absolute;
+    right          : 25rem;
+    transform      : scale(1.2);
+    z-index        : 10;
+
+}
+
+/* .material__bgc{ background: #262626;} */
+.material__shadow-none {
+    box-shadow: none;
+}
+
+.material_pr {
+    position: relative !important;
 }
