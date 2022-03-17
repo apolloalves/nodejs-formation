@@ -1,31 +1,32 @@
+<!-- Main Screen -->
 <!-- Include Header  -->
 <%- include ('./partials/head') %>
-<body>
-    <main>
-    <!-- Include navbar -->
-    <%- include ('./partials/navbar') %> 
-        
-        <div class="container">
-            <header>
-                <h1 class="fw-400">Questions</h1>
-                <hr>
-            </header>
-            
-            <% questions.forEach( question => { %>
-                
-                <section class="card material__card-shadow card__questions">
+
+    <body>
+        <main>
+            <!-- Include navbar -->
+            <%- include ('./partials/navbar') %>
+
+            <div class="container container__questions">
+                <header>
+                    <h1 class="fw-400">Questions</h1><hr>
+                </header>
+                <% questions.forEach(( question ) => { %>
+
+                <section class="card material__shadow card__questions">
                     <header class="card-header">
                         <span><%= question.title  %> </span>
                     </header>
-                    <a href="/question/<%= question.id %> " class="btn material__btn material__shadow-none material__btn--answer">answer</a>
+                    <a href="/question/<%= question.id %>" class="btn material__btn material__shadow-none material__btn--answer">answer</a>
                 </section>
+                <% }) %>
                 
-                <% }) %> 
+                <a href="/question" class="btn material__btn-floating">
+                    <span class="material-icons text-light">mode_edit</span>
+                </a>
             </div>
-            <a href="/question" class="btn material__btn-floating"><span class="material-icons text-light">mode_edit</span></a>
-    </main>
-
-    <!-- Include Footer -->
-    <%- include ('./partials/scripts') %> 
-</body>
+        </main>
+        <!-- Include Footer -->
+        <%- include ('./partials/scripts') %>
+    </body>
 </html>
