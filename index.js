@@ -46,32 +46,40 @@ app.get('/', ( req, res ) => {
 
 app.get('/question', ( req, res ) => { res.render('question')})
 
-
-
-
 app.get('/question/:id', (req, res ) => {
-    const id = req.params.id
+   
+    let id = req.params.id
+
     // search dabatabase
     QuestionModel.findOne({
         
         where: { id: id }
     }).then((question) => {
 
-        question != undefined
+        if(question != undefined) {
+
+            Answer.findAll({
+                where: {questionId: question.id}, 
+                    order: [ ['id','DESC' ] ]
+
+            }).then(answers => {
+                res.render('answer', {
+                    question: question, 
+                    answers: answers
+                })
+            })
+
+        }else{
+            res.redirect('/')
+        }
        
-        ? res.render('answer', {
-            question: question
-        }) 
-        : res.redirect('/')
-    })
-
-    .catch(erro => console.log(err))
-
 })
+})
+
 
 app.post('/savequestion', ( req, res ) => {
 
-    const data = {
+    let data = {
         title: req.body.title, 
         description: req.body.description, 
     }
@@ -87,31 +95,30 @@ app.post('/savequestion', ( req, res ) => {
 })
 
 
-app.post('/responder', ( req, res ) => {
+app.post('/reply', ( req, res ) => {
     
+        let data_answer = {
 
-        const corpo = req.body.corpo 
-        const perguntaId =  req.body.pergunta
-        
-   
-    
+            answer: req.body.answer, 
+            questionId:  req.body.question
+        }
+
     Answer.create({
         
-        corpo: corpo,
-        perguntaId: perguntaId
+        answer: data_answer.answer,
+        questionId: data_answer.questionId
         
         
     }).then(() => {
-        console.log('Dados do req' + corpo)
-        res.redirect( '/question/' + perguntaId )
+        
+        // console.log('Dados do req' + data_answer.answer)
+        res.redirect( '/question/' + data_answer.questionId )
 
     }).catch(err => console.log('ocorreu um erro: '  +  err  ))
 
 
     
 })
-
-
 
 
 app.listen(3000, () => console.log('Server is running at http://localhost:3000'))

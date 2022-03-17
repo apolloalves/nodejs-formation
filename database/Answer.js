@@ -3,13 +3,13 @@ const connection = require('./database')
 
 const Answer = connection.define("answers", {
 
-    corpo: {
+    answer: {
         type: Sequelize.TEXT, 
         allowNull: false
 
     }, 
 
-    perguntaId : {
+    questionId : {
         type: Sequelize.INTEGER,
         allowNull: false
 

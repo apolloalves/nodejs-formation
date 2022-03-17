@@ -10,12 +10,27 @@
         <p><%= question.description %> </p>
     </header>
 
-    <form action="/responder" method="POST">
+    <form action="/reply" method="POST">
         <label for="corpo">Type your answer:</label>
-        <textarea name="corpo" class="form-control material__border" autofocus></textarea>
-        <input type="hidden" name="pergunta" value="<%= question.id %>">
+        <textarea name="answer" class="form-control material__border" autofocus></textarea>
+        <input type="hidden" name="question" value="<%= question.id %>">
         <button type="submit"  class="btn material__btn material__shadow-none material_pr">answer</button>
     </form>
+    <br>
+      <section class="answer__list">
+          <header>
+              <h3 class="fw-400">Answers</h3>
+          </header>
+          <% answers.forEach( answer =>  {%> 
+              <section class="card material__shadow card__questions">
+                  <header class="card-header">
+                      <span><%= answer.answer %> </span>
+                  </header>
+              </section>
+              
+          <% }) %> 
+
+      </section> 
    </section>
 </body>
 <%- include( './partials/scripts') %> 
