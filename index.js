@@ -1,15 +1,15 @@
 const express = require('express')
 const app = express()
 
-const bodyParser = require('body-parser')
-const QuestionModel = require('./database/Question')
-
-const connection = require('./database/database')
 const Answer = require('./database/Answer')
+const QuestionModel = require('./database/Question')
+const connection = require('./database/database')
 
+const bodyParser = require('body-parser')
 
 app.use( bodyParser.urlencoded({ extended: false }))
 app.use( bodyParser.json() )
+
 
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/views'));
@@ -73,7 +73,7 @@ app.get('/question/:id', (req, res ) => {
             res.redirect('/')
         }
        
-})
+    })
 })
 
 
