@@ -1,39 +1,36 @@
 <!-- //Answers Screen -->
 
 <%- include ('./partials/head') %> 
-<body>
-    <%- include( './partials/navbar')%>
-   <section class="container">
-    <header>
-        <h1 class="fw-400"><%= question.title %></h1>
-        <hr>
-        <p><%= question.description %> </p>
-    </header>
+<main>
+    <body>
+        <%- include( './partials/navbar')%>
+    <section class="container">
+        <header>
+            <h1 class="fw-400"><%= question.title %></h1>
+            <hr>
+            <p><%= question.description %> </p>
+        </header>
 
-    <form action="/reply" method="POST">
-        <label for="corpo">Type your answer:</label>
-        <textarea name="answer" class="form-control material__border" autofocus></textarea>
-        <input type="hidden" name="question" value="<%= question.id %>">
-        <button type="submit"  class="btn material__btn material__shadow-none material_pr">answer</button>
-    </form>
-    <br>
-      <section class="answer__list">
-          <header>
-              <h3 class="fw-400">Answers</h3>
-          </header>
-          <% answers.forEach( answer =>  {%> 
-              <section class="card material__shadow card__questions">
-                  <header class="card-header">
-                      <span><%= answer.answer %> </span>
-                  </header>
-              </section>
-              
-          <% }) %> 
-
-      </section> 
-   </section>
-</body>
-<%- include( './partials/scripts') %> 
-
-
-<!-- Basta digita apt get install e nomedopacote como root. -->
+        <form action="/reply" method="POST">
+            <label for="corpo">Type your answer:</label>
+            <textarea name="answer" class="form-control material__border" autofocus></textarea>
+            <input type="hidden" name="question" value="<%= question.id %>">
+            <button type="submit"  class="btn material__btn material__shadow-none material_pr">answer</button>
+        </form>
+        <br>
+        <section class="answer__list">
+            <header>
+                <h3 class="fw-400">Answers</h3>
+            </header>
+            <% answers.forEach( answer =>  {%> 
+                <section class="card material__shadow card__questions">
+                    <header class="card-header">
+                        <span><%= answer.answer %> </span>
+                    </header>
+                </section>
+            <% }) %> 
+        </section> 
+    </section>
+    <%- include( './partials/scripts') %> 
+    </body>
+</main>
