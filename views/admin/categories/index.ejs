@@ -1,0 +1,60 @@
+<!-- include Head html -->
+<%- include('../../partials/head') %> 
+
+<main>
+      <!-- include navbar -->
+      <%- include('../../partials/navbar') %> 
+      <section class="container psr-4rem">
+          
+          <h1>Categorias</h1>
+          <!-- <a class="btn" href="/admin/categories/new">Criar nova categoria</a> -->
+
+          <table class="table table-borderless">
+
+            <thead>
+                  <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Título</th>
+                      <th scope="col">Slug</th>
+                      <th scope="col">Ações</th>
+                  </tr>
+              </thead>
+
+              <tbody>
+                
+                  <% categories.forEach(category  => { %> 
+
+                    <tr>
+                        <td scope="row"><%= category.id %></td>
+                        <td><%= category.title %></td>
+                        <td><%= category.slug %></td>
+                        <td>
+                            <a class="btn material__btn material__btn-action" href="/admin/categories/edit/<%= category.id %>" title="Editar categoria">
+                               Editar
+                                <!-- <span class="material-icons">edit_calendar</span> -->
+                            </a>
+
+                            <form action="/categories/delete" method="POST" style="display: inline;" onsubmit="confirmDeletion( event, this )">
+                                <input type="hidden" name="id" value="<%= category.id  %> ">
+                                <button class="btn material__btn material__btn-danger" title="Excluir categoria">
+                                    Excluir
+                                    <!-- <span class="material-icons">delete</span></button> -->
+                            </form>
+                            
+                        </td>
+                    </tr>
+
+                    <% }) %> 
+              </tbody>
+          </table>
+        </section>
+        <a href="/admin/categories/new" class="btn material__btn-floating">
+          <span class="material-icons text-light">mode_edit</span>
+      </a>
+</main>
+
+<%- include('../../partials/scripts') %> 
+
+</body>
+
+</html>

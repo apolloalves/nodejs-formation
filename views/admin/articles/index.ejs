@@ -1,0 +1,64 @@
+<!-- include Head html -->
+<%- include('../../partials/head') %> 
+
+    <main>
+        <!-- include navbar -->
+        <%- include('../../partials/navbar') %> 
+        <section class="container psr-4rem">
+            
+            <h1>Artigos</h1>
+
+            <table class="table table-borderless table__articles">
+
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Slug</th>
+                        <th scope="col">Category</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <% articles.forEach(article => { %>
+                            
+                        <td><%=  article.id %></td>
+                        <td><%=  article.title %></td>
+                        <td><%=  article.slug %></td>
+                        <td><%=  article.category.title %></td> 
+                        <td>
+                            <form action="/articles/delete" method="POST" style="display: inline;" onsubmit="confirmDeletion( event, this )">
+                                <input type="hidden" name="id" value="<%= article.id  %> ">
+                                <button class="btn material__btn material__btn-danger" title="Excluir categoria">Excluir</button>                        <!-- <span class="material-icons">delete</span></button> -->
+                        </form>
+                        </td>
+                   
+                    </tr>                  
+
+                    <% }) %> 
+                    
+                </tbody>
+            </table>
+            </section>
+            <a href="/admin/articles/new" class="btn material__btn-floating">
+            <span class="material-icons text-light">mode_edit</span>
+        </a>
+    </main>
+    <script>
+         const confirmDeletion = ( event, form ) => {
+        
+            let decision = confirm("Deseja remover este artigo?")
+            event.preventDefault()
+            
+            if( decision )  form.submit()
+
+    }
+
+    </script>
+    <%- include('../../partials/scripts') %> 
+
+    </body>
+</html>

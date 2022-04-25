@@ -1,0 +1,30 @@
+<!-- include Head html -->
+<%- include('../../partials/head') %> 
+<body>
+    <main>
+        <!-- include navbar -->
+        <%- include('../../partials/navbar') %> 
+        
+        <section class="container psr-4rem">
+            
+            <div class="card">
+                <header class="card-header">
+                    <h1 class="fw-400">Edição de categoria</h1>
+                </header>
+                <div class="card-body">
+                    <form action="/categories/update" method="POST">
+                        <label for="title">Título</label>
+                        <input class="form-control material__border" type="text" name="title" id="title" value="<%= category.title %> ">
+                        <input type="hidden" name="id" value="<%= category.id %> ">
+                        <button class="btn material__btn">Atualizar</button>
+                    </form>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+</body>
+
+</html>
+
+<%- include('../../partials/scripts') %> 

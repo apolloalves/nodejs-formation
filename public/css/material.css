@@ -1,0 +1,105 @@
+.material__btn {
+    background-color: transparent;
+    border   : .125rem solid;
+    font-weight     : bold;
+    font-size       : .80rem;
+    color           : #3f51b5;
+    margin          : .5rem 0;
+    padding         : 12px 24px 12px 24px;
+    transition      : all .2s;
+    text-transform  : uppercase;
+}
+
+.material__btn--answer:focus {
+    box-shadow: none;
+    outline   : none;
+
+}
+
+.material__btn--answer:hover,
+.material__btn:hover {
+    background: #3f51b5;
+    color     : #fff;
+}
+
+.material__border {
+    background: transparent;
+    border    : 1px solid #44444454;
+    outline   : none;
+    padding      : 0;
+
+}
+
+.material__input:focus {
+    background   : transparent;
+    border       : 0;
+    border-bottom: 3px solid #3f51b5;
+    border-color : #3f51b5;
+    box-shadow   : none;
+    outline      : none;
+
+}
+
+
+.material__border:focus {
+    background   : transparent;
+    border       : 0;
+    border-bottom: 3px solid #3f51b5;
+    border-color : #3f51b5;
+    box-shadow   : none;
+    outline      : none;
+
+}
+
+
+
+.material__shadow {
+    /* box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+
+}
+
+.material__btn-floating {
+    align-items    : center;
+    background     : #3f51b5;
+    box-shadow     : 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+    border-radius  : 50%;
+    bottom         : 5rem;
+    display        : flex;
+    height         : 3rem;
+    flex-direction : column;
+    justify-content: center;
+    width          : 3rem;
+    position       : absolute;
+    right          : 10rem;
+    transform      : scale(1.2);
+    z-index        : 10;
+
+}
+
+.material__btn-action,
+.material__btn-danger {
+
+   
+    margin     : 0;
+    padding    : 0.5rem 2rem;
+    color      : #3f51b5;
+    font-weight: bold;
+
+}
+
+
+.material__btn-danger:hover{
+    background: #a94657;
+    
+}
+
+.material__btn-danger {
+
+   color: #a94657;
+
+}
+
+.material__btn-action:not(.material__btn-danger) {
+    margin-right: .5rem;
+}

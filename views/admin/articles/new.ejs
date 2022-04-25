@@ -1,0 +1,72 @@
+<!-- include Head html -->
+<%- include('../../partials/head') %>
+
+<main>
+    <!-- include navbar -->
+    <%- include('../../partials/navbar') %>
+        <section class="container psr-4rem">
+
+            <div class="card">
+                <header class="card-header">
+                    <h1 class="fw-400">Novo Artigo</h1>
+                </header>
+                <div class="card-body">
+                    <form action="/articles/save" method="POST">
+                        <label for="title">Título do artigo</label>
+                        <input class="form-control material__input" type="text" name="title" id="title">
+                        <label for="title">Descrição:</label>
+                        <textarea class="form-control material__border" name="body" id="article"></textarea>
+
+                        <select class="form-control" name="categories" id="categories">
+
+                            <% categories.forEach( category =>  { %>
+                                <option value="<%= category.id %>"><%= category.title %></option>
+                                
+                            <% }) %>
+                        </select>
+
+                        <button class="btn material__btn">cadastrar</button>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <%- include('../../partials/scripts') %>
+   <script src="/tinymce/js/tinymce/tinymce.min.js"></script>
+
+
+   <script>
+
+       tinymce.init({
+        //    language:  'pt_BR',
+           selector: "#article",
+           plugins: [
+             
+               'advlist',
+               'autolink', 
+               'link', 
+               'image', 
+               'lists', 
+               'print', 
+               'preview', 
+               'hr', 
+               'searchreplace', 
+               'wordcount', 
+               'fullscreen', 
+               'insertdatetime',
+               'media', 
+               'save', 
+               'table', 
+               'paste', 
+               'emoticons'
+           ]
+           
+       })
+       
+   </script>
+
+
+    </body>
+</html>

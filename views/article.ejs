@@ -1,0 +1,27 @@
+    <!-- include Head html -->
+    <%- include('./partials/head') %> 
+    <body>
+            <main>
+                <!-- include navbar -->
+                <%- include('./partials/homeNavbar') %> 
+    
+                <section class="container">
+                  
+                      <div class="card">
+                          <header class="card-header">
+                            <div><%= article.title %></div>
+                          </header>
+                          <div class="carb-body">
+                             <%- article.body %> 
+                          </div>
+                      </div>
+                  
+                </section>
+    
+                <%- include('./partials/scripts') %> 
+    
+            </main>
+        </body>
+    </html>
+    
+    

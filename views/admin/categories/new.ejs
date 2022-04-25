@@ -1,0 +1,27 @@
+<!-- include Head html -->
+<%- include('../../partials/head') %>
+
+    <main>
+        <!-- include navbar -->
+        <%- include('../../partials/navbar') %>
+            <section class="container psr-4rem">
+
+                <div class="card">
+                    <header class="card-header">
+                        <h1 class="fw-400">Cadastro de Categoria</h1>
+                    </header>
+                    <div class="card-body">
+                        <form action="/categories/save" method="POST">
+                            <label for="title">Título</label>
+                            <input class="form-control material__border" type="text" name="title" id="title">
+                            <button class="btn material__btn">cadastrar</button>
+                        </form>
+                    </div>
+                </div>
+
+            </section>
+    </main>
+
+        <%- include('../../partials/scripts') %>
+    </body>
+</html>

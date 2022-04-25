@@ -1,0 +1,46 @@
+<%- include('../../partials/head') %> 
+
+    <body>
+        <main>
+            <!-- include navbar -->
+            <%- include('../../partials/navbar') %> 
+            
+            <section class="container psr-4rem">
+          
+                <h1>Usuários</h1>
+                <!-- <a class="btn" href="/admin/categories/new">Criar nova categoria</a> -->
+      
+                <table class="table table-borderless">
+      
+                  <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Email</th>
+                          
+                        </tr>
+                    </thead>
+      
+                    <tbody>
+                      
+                        <% users.forEach(user  => { %> 
+                            
+                            <tr>
+                                <td><%= user.id%></td>
+                                <td><%= user.email%></td>
+                            </tr>
+                         
+      
+                          <% }) %> 
+                    </tbody>
+                </table>
+              </section>
+              <a href="/admin/users/create" class="btn material__btn-floating">
+                <span class="material-icons text-light">mode_edit</span>
+            </a>
+            <%- include('../../partials/scripts') %>
+        </main>
+    </body>
+</html>
+
+
+
